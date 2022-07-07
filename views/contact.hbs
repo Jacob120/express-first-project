@@ -1,11 +1,28 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang='en' dir='ltr'>
   <head>
-    <meta charset="utf-8" />
+    <meta charset='utf-8' />
     <title>Contact</title>
   </head>
   <body>
-    <h1>Contact</h1>
-    <p>Send me an email at programmer@example.com</p>
+    <h2>Contact me</h2>
+    <form action='/contact/send-message' method='POST'>
+      <label>
+        Your name:
+        <input type='text' name='author' />
+      </label>
+      <label>
+        Your email:
+        <input type='email' name='sender' />
+      </label>
+      <label>
+        Title:
+        <input type='text' name='title' />
+      </label>
+      <label>
+        Message:
+        <textarea name='message'></textarea>
+      </label>
+      <button type='submit'>Send message</button>
+    </form>
   </body>
 </html>

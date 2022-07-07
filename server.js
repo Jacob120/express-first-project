@@ -5,6 +5,7 @@ import { engine } from 'express-handlebars';
 const app = express();
 const __dirname = path.resolve();
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.engine('.hbs', engine({ extname: '.hbs' }));
@@ -32,6 +33,15 @@ app.get('/info', (req, res) => {
 
 app.get('/history', (req, res) => {
   res.render('history');
+});
+
+app.post('/contact/send-message', (req, res) => {
+  const { author, sender, title, message } = req.body;
+  if (author && sender && title && message) {
+    res.send('The message has been sent!');
+  } else {
+    res.send("You can't leave this field empty! ");
+  }
 });
 
 app.use((req, res) => {
